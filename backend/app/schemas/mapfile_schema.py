@@ -21,3 +21,30 @@ class MapFile(BaseModel):
     size: List[int]
     layers: List[Layer]
 
+class MappingCreate(BaseModel):
+    name: str
+    description: str
+    extent: List[float]
+    size: List[int]
+    
+
+class MappingRead(BaseModel):
+    id: int
+    name: str
+    description: str
+    extent: List[float]
+    size: List[int]
+
+class Config:
+    from_attributes = True   # Pydantic v2 ORM mode
+
+class GroupLayerCreate(BaseModel):
+    mapping_id: int
+    layer_name: str
+
+class GroupLayerRead(BaseModel):
+    id: int
+    mapping_id: int
+    layer_name: str
+
+
