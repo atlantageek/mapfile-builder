@@ -17,7 +17,25 @@ class Layer(BaseModel):
 
 class MapFile(BaseModel):
     name: str
-    extent: List[float]
-    size: List[int]
-    layers: List[Layer]
+    description: Optional[str] = None
+    x_min: float
+    y_min: float
+    x_max: float
+    y_max: float
 
+class MapFileCreate(BaseModel):
+    name: str
+    description: Optional[str] = None
+    x_min: float
+    y_min: float
+    x_max: float
+    y_max: float
+
+class MapFileRead(BaseModel):
+    id: int
+    name: str
+    description: Optional[str] = None
+    x_min: float
+    y_min: float
+    x_max: float
+    y_max: float
