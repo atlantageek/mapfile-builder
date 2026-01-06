@@ -1,0 +1,31 @@
+<div class="editor-container">
+
+  <mat-card class="left-panel">
+    <h2>Map Settings</h2>
+    <input type="hidden" [(ngModel)]="mapConfig.id"/>
+    <mat-form-field appearance="outline">
+      <mat-label>Map Name</mat-label>
+      <input matInput [(ngModel)]="mapConfig.name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Extent</mat-label>
+      <input matInput [(ngModel)]="mapConfig.extent">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Size</mat-label>
+      <input matInput [(ngModel)]="mapConfig.size">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="writeMapfile()">Save</button>
+    <!-- <button mat-raised-button color="accent">Validate</button>
+    <button mat-raised-button>Format</button> -->
+  </mat-card>
+
+  <mat-card class="right-panel">
+    <h2>Generated Mapfile</h2>
+    <pre>{{ generated }}</pre>
+  </mat-card>
+
+</div>

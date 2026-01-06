@@ -1,0 +1,15 @@
+<mat-card class="mapfile-list-card">
+  <h3>Mapfiles</h3>
+
+  <button mat-raised-button color="primary" (click)="create()">Create</button>
+  <mat-nav-list>
+    <mat-list-item
+      *ngFor="let file of mapfiles"
+      (click)="choose(file)"
+      class="mapfile-item"
+    >
+      {{ file.name }}
+    </mat-list-item>
+  </mat-nav-list>
+</mat-card>
+

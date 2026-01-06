@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span>Mapfile Builder</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/">Editor</button>
+</mat-toolbar>
+
+<div class="layout-container">
+  <app-mapfile-list (selectMapfile)="onSelect($event)"></app-mapfile-list>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

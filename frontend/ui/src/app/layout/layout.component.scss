@@ -1,0 +1,15 @@
+.layout-container {
+  display: flex;
+  height: calc(100vh - 64px);
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow: auto;
+}
+
+
+.spacer {
+  flex: 1 1 auto;
+}
