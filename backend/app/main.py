@@ -38,6 +38,23 @@ def create_mapfile(mapfile_create: MapFileCreate, db:Session = Depends(get_db)):
     db.refresh(mapfile_obj)
 
     return {"message": "MapFile received", "mapfile": mapfile_create}
+@app.put("/mapfile")
+def update_mapfile(mapfile_update: MapFileRead, db:Session = Depends(get_db)):
+    mapfile_obj = db.query(MapFile).filter(MapFile.id == mapfile_update.id).first()
+    if not mapfile_obj:
+        return {"message": "MapFile not found"}
+
+    mapfile_obj.name = mapfile_update.name
+    mapfile_obj.description = mapfile_update.description
+    mapfile_obj.x_min = mapfile_update.x_min
+    mapfile_obj.y_min = mapfile_update.y_min
+    mapfile_obj.x_max = mapfile_update.x_max
+    mapfile_obj.y_max = mapfile_update.y_max
+
+    db.commit()
+    db.refresh(mapfile_obj)
+
+    return {"message": "MapFile updated", "mapfile": mapfile_update}
 
 
 # @app.post("/generate")
